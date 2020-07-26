@@ -1,7 +1,7 @@
 const http = require('http');
 const server = http.createServer((req,res) => {
 	res.writeHead(200, {'Content-Type': 'text/html'});
-	if (req.url === '/') {
+	if (req.url === '/' && req.method === 'GET') {
 		return 'Hello World, Welcome to WeJapa Internships';
 		res.end();
 	}else if (req.url === '/' && req.method === 'POST') {
