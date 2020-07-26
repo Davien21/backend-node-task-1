@@ -2,8 +2,7 @@ const http = require('http');
 const server = http.createServer((req,res) => {
 	res.writeHead(200, {'Content-Type': 'text/html'});
 	if (req.url === '/' && req.method === 'GET') {
-		return 'Hello World, Welcome to WeJapa Internships';
-		res.end();
+		res.end('Hello World, Welcome to WeJapa Internships');
 	}else if (req.url === '/' && req.method === 'POST') {
 		let data = "";
 	    req.on("data", chunk => {
@@ -11,12 +10,10 @@ const server = http.createServer((req,res) => {
 	    })
 	    req.on("end", () => {
 	    	name = data.split('=')[1];
-			return `Hello ${name}, Welcome to WeJapa Internships`;
-			res.end();
+			res.end(`Hello ${name}, Welcome to WeJapa Internships`);
 	    })
 	}else {
-		return 'Invalid Request';
-		res.end();
+		res.end('Invalid Request');
 	}
 });
 
